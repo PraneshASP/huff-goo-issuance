@@ -161,35 +161,34 @@
 }
 
 /* Methods */
-#define macro COMPUTE_GOO_BALANCE_WRAPPER() = takes (0) returns (0) {
-    0x04 calldataload
-    0x24 calldataload
-    0x44 calldataload
+#define macro COMPUTE_GOO_BALANCE() = takes (0) returns (0) {
+    0x04 calldataload           // [emissionMultiple]
+    0x24 calldataload           // [lastBalanceWad,emissionMultiple]  
+    0x44 calldataload           // [timeElapsedWad,lastBalanceWad,emissionMultiple]  
 
-    //COMPUTE_GOO_BALANCE()
-     dup1
-     dup1
-     WAD_MUL()
+     dup1                       // [timeElapsedWad,timeElapsedWad,lastBalanceWad,emissionMultiple]   
+     dup1                       // [timeElapsedWad,timeElapsedWad,timeElapsedWad,lastBalanceWad,emissionMultiple]   
+     WAD_MUL()                  // [timeElapsedWad * timeElapsedWad,timeElapsedWad,lastBalanceWad,emissionMultiple]   
      
-     dup4 // emission
-     mul
-     0x02 shr
-     dup3 // lastBal
-     add
-     0x00 mstore
+     dup4                       // [emissionMultiple, timeElapsedWad * timeElapsedWad,timeElapsedWad,lastBalanceWad,emissionMultiple]
+     mul                        // [emissionMultiple * timeElapsedWadSquared,timeElapsedWad,lastBalanceWad,emissionMultiple]  
+     0x02 shr                   // [emissionMultiple * timeElapsedWadSquared >> 2,timeElapsedWad, lastBalanceWad,emissionMultiple]    
+     dup3                       // [lastBalanceWad, emissionMultiple * timeElapsedWadSquared >> 2,timeElapsedWad,lastBalanceWad,emissionMultiple]
+     add                        // [lastBalanceWad + (emissionMultiple * timeElapsedWadSquared >> 2),timeElapsedWad,lastBalanceWad,emissionMultiple]        
+     0x00 mstore                // [timeElapsedWad,lastBalanceWad,emissionMultiple]  
      
-     dup2
-     dup4
-     mul
-     0xde0b6b3a7640000 // 1e18
-     mul
-     SQRT()
+     dup2                       // [lastBalanceWad, timeElapsedWad,lastBalanceWad,emissionMultiple]  
+     dup4                       // [emissionMultiple, lastBalanceWad, timeElapsedWad,lastBalanceWad,emissionMultiple]            
+     mul                        // [emissionMultiple * lastBalanceWad, timeElapsedWad,lastBalanceWad,emissionMultiple]     
+     [WAD]                      // [1e18, emissionMultiple * lastBalanceWad, timeElapsedWad,lastBalanceWad,emissionMultiple]     
+     mul                        // [1e18 * emissionMultiple * lastBalanceWad, timeElapsedWad,lastBalanceWad,emissionMultiple]       
+     SQRT()                     // [ sqrt(1e18 * emissionMultiple * lastBalanceWad), timeElapsedWad,lastBalanceWad,emissionMultiple]         
      
-     WAD_MUL()
-     0x00 mload
-     add 
+     WAD_MUL()                  // [ sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad,lastBalanceWad,emissionMultiple]           
+     0x00 mload                 // [ lastBalanceWad + (emissionMultiple * timeElapsedWadSquared >> 2), sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad,lastBalanceWad,emissionMultiple]             
+     add                        // [ lastBalanceWad + (emissionMultiple * timeElapsedWadSquared >> 2) + sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad,lastBalanceWad,emissionMultiple]               
 
-    0x00 mstore 
+    0x00 mstore                 // [lastBalanceWad,emissionMultiple] 
     0x20 0x00 return
 }
 
@@ -209,5 +208,5 @@
     // 0x00 0x00 revert
 
     compute_goo_balance:
-    COMPUTE_GOO_BALANCE_WRAPPER()
+    COMPUTE_GOO_BALANCE()
 }
