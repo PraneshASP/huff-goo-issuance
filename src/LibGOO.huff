@@ -1,0 +1,4 @@
+#define macro COMPUTE_GOO_BALANCE() = takes (0) returns (0) {
+}
+
+ 

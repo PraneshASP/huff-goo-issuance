@@ -1,4 +1,6 @@
-<img align="right" width="150" height="150" top="100" src="./assets/blueprint.png">
+# Todo...
+
+<!-- <img align="right" width="150" height="150" top="100" src="./assets/blueprint.png">
 
 # huff-project-template • [![ci](https://github.com/huff-language/huff-project-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/huff-language/huff-project-template/actions/workflows/ci.yaml) ![license](https://img.shields.io/github/license/huff-language/huff-project-template.svg) ![solidity](https://img.shields.io/badge/solidity-^0.8.15-lightgrey)
 
@@ -11,7 +13,7 @@ Versatile Huff Project Template using Foundry.
 
 The following will need to be installed in order to use this template. Please follow the links and instructions.
 
--   [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
+-   [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
     -   You'll know you've done it right if you can run `git --version`
 -   [Foundry / Foundryup](https://github.com/gakonst/foundry)
     -   This will install `forge`, `cast`, and `anvil`
@@ -81,4 +83,4 @@ test
 
 ## Disclaimer
 
-_These smart contracts are being provided as is. No guarantee, representation or warranty is being made, express or implied, as to the safety or correctness of the user interface or the smart contracts. They have not been audited and as such there can be no assurance they will work as intended, and users may experience delays, failures, errors, omissions, loss of transmitted information or loss of funds. The creators are not liable for any of the foregoing. Users should proceed with caution and use at their own risk._
+_These smart contracts are being provided as is. No guarantee, representation or warranty is being made, express or implied, as to the safety or correctness of the user interface or the smart contracts. They have not been audited and as such there can be no assurance they will work as intended, and users may experience delays, failures, errors, omissions, loss of transmitted information or loss of funds. The creators are not liable for any of the foregoing. Users should proceed with caution and use at their own risk._ -->
