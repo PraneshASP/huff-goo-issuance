@@ -1,6 +1,6 @@
 <img align="right" width="150" height="150" top="100" src="./assets/icon.png">
 
-# huff-goo-issuance • [![tests](https://github.com/PraneshASP/huff-goo-issuance/actions/workflows/ci.yaml/badge.svg)](https://github.com/PraneshASP/huff-goo-issuance/actions/workflows/ci.yaml) ![![license](https://img.shields.io/badge/Unlicense-blue.svg?label=license)](https://github.com/PraneshASP/huff-goo-issuance/blob/main/LICENSE)
+# huff-goo-issuance • [![tests](https://github.com/PraneshASP/huff-goo-issuance/actions/workflows/ci.yaml/badge.svg)](https://github.com/PraneshASP/huff-goo-issuance/actions/workflows/ci.yaml) [![license](https://img.shields.io/badge/Unlicense-blue.svg?label=license)](https://github.com/PraneshASP/huff-goo-issuance/blob/main/LICENSE)
 
 Huff implmentation of GOO (Gradual Ownership Optimization) Issuance. Read the [whitepaper here](https://www.paradigm.xyz/2022/09/goo).
 
