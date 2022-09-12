@@ -25,14 +25,14 @@ The following will need to be installed in order to use this template. Please fo
 
 ### Quickstart
 
-1. Clone this repo Or run:
+1. Clone this repo or run:
 
 ```
 git clone https://github.com/PraneshASP/huff-goo-issuance
 cd huff-goo-issuance
 ```
 
-2. Install dependencies
+2. Install dependencies:
 
 Once you've cloned and entered into your repository, you need to install the necessary dependencies. In order to do so, simply run:
 
@@ -40,7 +40,7 @@ Once you've cloned and entered into your repository, you need to install the nec
 forge install
 ```
 
-3. Build & Test
+3. Build & Test:
 
 To build and test your contracts, you can run:
 
