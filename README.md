@@ -4,7 +4,7 @@
 
 Huff implmentation of GOO (Gradual Ownership Optimization) Issuance. Read the [whitepaper here](https://www.paradigm.xyz/2022/09/goo).
 
-> Note this codebase is experimental and is not ready to be used in production, it is meant as a learning resource.
+> Note: This codebase is experimental and is not ready to be used in production, it is meant as a learning resource.
 
 Generated with: Versatile Huff Project Template using Foundry.
 
