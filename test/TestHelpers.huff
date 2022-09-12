@@ -1,0 +1,17 @@
+/// Ack: https://github.com/cheethas/huff-vrgda/blob/main/src/utils/testHelpers.huff
+
+
+/* Macros */
+#define macro ASSERT_EQ() = {
+    eq ASSERT()
+}
+
+#define macro ASSERT() = {
+    continue jumpi
+    FAIL()
+    continue:
+}
+
+#define macro FAIL() = {
+    0x00 dup1 revert
+}

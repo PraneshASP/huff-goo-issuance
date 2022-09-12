@@ -1,9 +1,6 @@
 /* Imports */
 #include "./utils/WadMath.huff"
 
-
-
-
 /* Methods */
 #define macro COMPUTE_GOO_BALANCE() = takes (0) returns (0) {
     // Input Stack:             // [timeElapsedWad,lastBalanceWad,emissionMultiple]  
@@ -29,7 +26,7 @@
      WAD_MUL()                  // [ sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad,lastBalanceWad,emissionMultiple]           
      0x00 mload                 // [ lastBalanceWad + (emissionMultiple * timeElapsedWadSquared >> 2), sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad,lastBalanceWad,emissionMultiple]             
      add                        // [ lastBalanceWad + (emissionMultiple * timeElapsedWadSquared >> 2) + sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad,lastBalanceWad,emissionMultiple]               
-    
-     //Return Stack:            // [ lastBalanceWad + (emissionMultiple * timeElapsedWadSquared >> 2) + sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad,lastBalanceWad,emissionMultiple]               
+   
+     //Return Stack:            // [ lastBalanceWad + (emissionMultiple * timeElapsedWadSquared >> 2) + sqrt(1e18 * emissionMultiple * lastBalanceWad) * timeElapsedWad]               
 }
 

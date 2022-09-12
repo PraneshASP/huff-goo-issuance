@@ -1,0 +1,40 @@
+/* Imports */
+#include "./TestHelpers.huff"
+#include "../src/LibGOO.huff"
+
+/* Tests */
+#define test TEST_COMPUTE_GOO_BALANCE_MULTIPLE_1() = {
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a10000       // [2.25e18, result]   
+    ASSERT_EQ()              // [2.25e18 == result]    
+}
+ 
+#define test TEST_COMPUTE_GOO_BALANCE_MULTIPLE_2() = {
+    0x02                     // [2]   
+    0xde0b6b3a7640000        // [1e18, 2]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 2]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x28715dcb78dfbe88       // [2.914213562373095048e18, result]   
+    ASSERT_EQ()              // [2.914213562373095048e18 == result]
+} 
+
+#define test TEST_COMPUTE_GOO_BALANCE_INITIAL_BALANCE_1() = {
+    0x01                     // [1]   
+    0x8ac7230489e80000       // [10e18, 1]   
+    0xde0b6b3a7640000        // [1e18, 10e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0xba21fb787b3e5bc3       // [13.412277660168379331e18, result]   
+    ASSERT_EQ()              // [13.412277660168379331e18 == result]
+} 
+
+#define test TEST_COMPUTE_GOO_BALANCE_TIME_ELAPSED_1() = {
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0x8ac7230489e80000       // [10e18, 10e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a100000      // [36e18, result]   
+    ASSERT_EQ()              // [36e18 == result]
+} 

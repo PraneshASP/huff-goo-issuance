@@ -22,5 +22,8 @@ jobs:
         with:
           version: nightly
 
-      - name: Run Tests
+      - name: Run Foundry Tests
         run: forge test -vvv
+
+      - name: Run Huff Tests
+        run: bash hufftest.sh
