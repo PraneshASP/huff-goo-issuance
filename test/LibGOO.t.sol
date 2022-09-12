@@ -10,7 +10,7 @@ contract LibGOOTest is Test {
 
     /// @dev Setup the testing environment.
     function setUp() public {
-        sut = LibGOO(HuffDeployer.deploy("LibGOO"));
+        sut = LibGOO(HuffDeployer.deploy("./wrappers/LibGOOWrapper"));
     }
 
     function testDeployment() public {
