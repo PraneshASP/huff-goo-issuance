@@ -95,3 +95,45 @@
     pop                      // []
 } 
 
+#define test TEST_COMPUTE_GOO_BALANCE_TIME_ELAPSED() = {
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0x8ac7230489e80000       // [10e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a100000      // [36e18, result]   
+    ASSERT_EQ()              // [36e18 == result]
+    pop                      // []
+
+    0x02                     // [2]   
+    0xde0b6b3a7640000        // [1e18, 2]   
+    0x8ac7230489e80000       // [10e18, 1e18, 2]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x388075b3642cd7150      // [65.142135623730950480e18, result]   
+    ASSERT_EQ()              // [65.142135623730950480e18 == result]
+    pop                      // []
+
+    0x03                     // [3]   
+    0xde0b6b3a7640000        // [1e18, 3]   
+    0x8ac7230489e80000       // [10e18, 1e18, 3]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x50f150ba95e66c542      // [93.320508075688772930e18, result]   
+    ASSERT_EQ()              // [93.320508075688772930e18 == result]
+    pop                      // []
+
+    0x0a                     // [10]   
+    0xde0b6b3a7640000        // [1e18, 10]   
+    0x8ac7230489e80000       // [10e18, 1e18, 10]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0xf522dcdeb69f1959e      // [282.622776601683793310e18, result]   
+    ASSERT_EQ()              // [282.622776601683793310e18 == result]
+    pop                      // []
+
+    0x64                     // [199]   
+    0xde0b6b3a7640000        // [1e18, 199]   
+    0x8ac7230489e80000       // [10e18, 1e18, 199]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x8d0020474fb7040000     // [2601e18, result]   
+    ASSERT_EQ()              // [2601e18 == result]
+    pop                      // []
+    
+} 
