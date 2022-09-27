@@ -1,6 +1,6 @@
 /* Imports */
 #include "./TestHelpers.huff"
-#include "../src/LibGOO.huff"
+#include "../../src/LibGOO.huff"
 
 /* Tests */
 #define test TEST_COMPUTE_GOO_BALANCE_MULTIPLE() = {
