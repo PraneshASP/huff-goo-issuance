@@ -1,0 +1,182 @@
+/* Imports */
+#include "./TestHelpers.huff"
+#include "../../src/LibGOO.huff"
+
+/* Tests */
+#define test TEST_COMPUTE_GOO_BALANCE_MULTIPLE() = {
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a10000       // [2.25e18, result]   
+    ASSERT_EQ()              // [2.25e18 == result]  
+
+    pop                      // [] 
+
+    0x02                     // [2]   
+    0xde0b6b3a7640000        // [1e18, 2]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 2]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x28715dcb78dfbe88       // [2.914213562373095048e18e18, result]   
+    ASSERT_EQ()       
+
+    pop                      // [] 
+
+    0x03                     // [3]   
+    0xde0b6b3a7640000        // [1e18, 3]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 3]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x3052bac2c30146ed       // [3.482050807568877293e18, result]   
+    ASSERT_EQ()      
+
+    pop                      // [] 
+
+    0x0a                     // [10]   
+    0xde0b6b3a7640000        // [1e18, 10]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 10]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x5c752a3bd15b5bc3       // [6.662277660168379331e18, result]   
+    ASSERT_EQ() 
+
+    pop                      // [] 
+
+    0x64                     // [100]   
+    0xde0b6b3a7640000        // [1e18, 100]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 100]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a100000      // [36e18, result]   
+    ASSERT_EQ() 
+}
+
+#define test TEST_COMPUTE_GOO_BALANCE_INITIAL_BALANCE() = {
+    0x01                     // [1]   
+    0x8ac7230489e80000       // [10e18, 1]   
+    0xde0b6b3a7640000        // [1e18, 10e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0xba21fb787b3e5bc3       // [13.412277660168379331e18, result]   
+    ASSERT_EQ()              // [13.412277660168379331e18 == result]
+
+    pop                      // []
+
+    0x02                     // [2]   
+    0x8ac7230489e80000       // [10e18, 2]   
+    0xde0b6b3a7640000        // [1e18, 10e18, 2]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0xcfc7b653469a9300       // [14.972135954999579392e18, result]   
+    ASSERT_EQ()              // [14.972135954999579392e18 == result]
+
+    pop                      // []
+
+    0x03                     // [3]   
+    0x8ac7230489e80000       // [10e18, 3]   
+    0xde0b6b3a7640000        // [1e18, 10e18, 3]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0xe132afaf5b168f4e       // [16.227225575051661134e18, result]   
+    ASSERT_EQ()              // [16.227225575051661134e18 == result]
+
+    pop                      // []
+
+    0x0a                     // [10]   
+    0x8ac7230489e80000       // [10e18, 10]   
+    0xde0b6b3a7640000        // [1e18, 10e18, 10]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x138400eca364a0000      // [22.500000000000000000e18, result]   
+    ASSERT_EQ()              // [22.500000000000000000e18 == result]
+
+    pop                      // []
+
+    0x64                     // [100]   
+    0x8ac7230489e80000       // [10e18, 100]   
+    0xde0b6b3a7640000        // [1e18, 10e18, 100]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x39c93a6562d9195a7      // [66.622776601683793319e18, result]   
+    ASSERT_EQ()              // [66.622776601683793319e18 == result]
+
+    pop                      // []
+} 
+
+#define test TEST_COMPUTE_GOO_BALANCE_TIME_ELAPSED() = {
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0x8ac7230489e80000       // [10e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a100000      // [36e18, result]   
+    ASSERT_EQ()              // [36e18 == result]
+    pop                      // []
+
+    0x02                     // [2]   
+    0xde0b6b3a7640000        // [1e18, 2]   
+    0x8ac7230489e80000       // [10e18, 1e18, 2]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x388075b3642cd7150      // [65.142135623730950480e18, result]   
+    ASSERT_EQ()              // [65.142135623730950480e18 == result]
+    pop                      // []
+
+    0x03                     // [3]   
+    0xde0b6b3a7640000        // [1e18, 3]   
+    0x8ac7230489e80000       // [10e18, 1e18, 3]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x50f150ba95e66c542      // [93.320508075688772930e18, result]   
+    ASSERT_EQ()              // [93.320508075688772930e18 == result]
+    pop                      // []
+
+    0x0a                     // [10]   
+    0xde0b6b3a7640000        // [1e18, 10]   
+    0x8ac7230489e80000       // [10e18, 1e18, 10]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0xf522dcdeb69f1959e      // [282.622776601683793310e18, result]   
+    ASSERT_EQ()              // [282.622776601683793310e18 == result]
+    pop                      // []
+
+    0x64                     // [199]   
+    0xde0b6b3a7640000        // [1e18, 199]   
+    0x8ac7230489e80000       // [10e18, 1e18, 199]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x8d0020474fb7040000     // [2601e18, result]   
+    ASSERT_EQ()              // [2601e18 == result]
+    pop                      // []
+    
+} 
+
+
+#define test TEST_COMPUTE_GOO_BALANCE_TIME_ELAPSED2() = {
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0xde0b6b3a7640000        // [1e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a10000       // [2.25e18, result]   
+    ASSERT_EQ()              // [2.25e18 == result]
+    pop                      // []
+
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0x1bc16d674ec80000       // [2e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x3782dace9d900000       // [4e18, result]   
+    ASSERT_EQ()              // [4e18 == result]
+    pop                      // []
+
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0x29a2241af62c0000       // [3e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x56bc75e2d6310000       // [6.25e18, result]   
+    ASSERT_EQ()              // [6.25e18 == result]
+    pop                      // []
+
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0x8ac7230489e80000       // [10e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x1f399b1438a100000      // [36e18, result]   
+    ASSERT_EQ()              // [36e18 == result]
+    pop                      // []
+
+    0x01                     // [1]   
+    0xde0b6b3a7640000        // [1e18, 1]   
+    0x56bc75e2d63100000      // [100e18, 1e18, 1]   
+    COMPUTE_GOO_BALANCE()    // [result]               
+    0x8d0020474fb7040000     // [2.25e18, result]   
+    ASSERT_EQ()              // [2.25e18 == result]
+    pop                      // []
+} 
