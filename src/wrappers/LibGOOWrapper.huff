@@ -14,7 +14,7 @@
     COMPUTE_GOO_BALANCE()
     
     0x00 mstore                 // [lastBalanceWad,emissionMultiple] 
-    0x20 0x00 return
+    0x20 0x00 return            // []
 }
 
 
