@@ -12,18 +12,19 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install Foundry
+      - name: "Install Foundry"
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
 
-      - name: Install Huff
+      - name: "Install Huff"
         uses: huff-language/huff-toolchain@v2
         with:
           version: nightly
 
-      - name: Run Foundry Tests
+      - name: "Foundry Tests"
         run: forge test -vvv
 
-      - name: Run Huff Tests
+      - name: "Huff Tests"
         run: bash hufftest.sh
+        shell: bash
