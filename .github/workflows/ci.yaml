@@ -24,6 +24,7 @@ jobs:
 
       - name: "Foundry Tests"
         run: forge test -vvv
+        shell: bash
 
       - name: "Huff Tests"
         run: bash hufftest.sh
